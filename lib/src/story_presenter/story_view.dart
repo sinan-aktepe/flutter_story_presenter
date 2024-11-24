@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'dart:developer';
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_story_presenter/src/story_presenter/story_custom_view_wrapper.dart';
 import 'package:just_audio/just_audio.dart';
