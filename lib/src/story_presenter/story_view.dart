@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_story_presenter/src/story_presenter/story_custom_view_wrapper.dart';
@@ -91,7 +92,7 @@ class FlutterStoryView extends StatefulWidget {
   final Widget? headerWidget;
 
   /// Widget to display text field or other content at the bottom of the screen.
-  final Widget? footerWidget;
+  final Widget? Function(int currentIndex)? footerWidget;
 
   @override
   State<FlutterStoryView> createState() => _FlutterStoryViewState();
@@ -607,7 +608,7 @@ class _FlutterStoryViewState extends State<FlutterStoryView>
         if (widget.footerWidget != null) ...{
           Align(
             alignment: Alignment.bottomCenter,
-            child: widget.footerWidget!,
+            child: widget.footerWidget!.call(currentIndex),
           ),
         },
       ],

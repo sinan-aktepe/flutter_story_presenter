@@ -300,7 +300,9 @@ class _MyStoryViewState extends State<MyStoryView> {
     return FlutterStoryView(
       flutterStoryController: controller,
       items: widget.storyModel.stories,
-      footerWidget: MessageBoxView(controller: controller),
+      footerWidget: (currentIndex) {
+        return MessageBoxView(controller: controller);
+      },
       storyViewIndicatorConfig: storyViewIndicatorConfig,
       initialIndex: 0,
       headerWidget: ProfileView(storyModel: widget.storyModel),
